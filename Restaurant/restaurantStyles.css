@@ -1,0 +1,20 @@
+header h1,
+footer {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Liu Jian Mao Cao', cursive;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+a:active {
+    text-decoration: none;
+}

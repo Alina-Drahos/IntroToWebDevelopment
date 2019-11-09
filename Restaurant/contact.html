@@ -2,111 +2,124 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="restaurantStyles.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
     <title>Deciduous Pizza</title>
+    <style>
+        table {
+            margin: auto;
+        }
+        
+        table,
+        td {
+            padding: 10px 5px;
+        }
+        
+        tbody td:nth-child(odd) {
+            text-align: right;
+            margin: 0 20px;
+        }
+        
+        input[type=checkbox],
+        input[type="radio"] {
+            margin: 0 15px;
+        }
+        
+        #submit {
+            text-align: center;
+        }
+        
+        input[type=submit] {
+            width: 150px;
+        }
+        
+        label.req {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-    <p>Contact Us</p>
-    <hr/>
-    <h1 style="text-align:center;">Deciduous Pizza</h1>
-    <hr/>
+    <header>
+        <p>Contact Us</p>
+        <hr/>
+        <h1>Deciduous Pizza</h1>
+        <hr/>
+
+    </header>
+
     <p><a href="index.html" style="margin-right: 20px;">Home</a>
         <a href="menu.html" style="margin-right: 20px;">Menu</a>
         <a href="contact.html">Contact US</a>
     </p>
     <hr/>
-    <div>
-        <form action="fake.html" method="GET">
-            <table style="width:100%;">
+
+    <form action="fake.html" method="GET">
+        <table>
+            <tbody>
                 <tr>
-                    <td style="width:33%; text-align: right;">
-                        <label for="name">Name: </label>
-                    </td>
-                    <td style="width:33%">
-                        <input type="text" id="name" name="name" />
-                    </td>
-                    <td style="width:33%">
+                    <td><label for="name" class="req">Name: </label></td>
+                    <td>
+                        <input type="text" id="name" name="name" required />
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align: right;">
-                        <label for="email">Email:</label>
-                    </td>
-                    <td style="width:33%;">
-                        <input type="email" id="email" name="email" />
-                    </td>
-                    <td style="width:33%;">
-                    </td>
+                    <td><label for="email" class="req">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required /></td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align: right;">
-                        <label for="phone">Phone:</label>
-                    </td>
-                    <td style="width:33%;">
-                        <input type="number" id="phone" name="tele-phone" />
-                    </td>
-                    <td style="width:33%;">
-                    </td>
+                    <td><label for="phone" class="req">Phone:</label></td>
+                    <td><input type="number" id="phone" name="tele-phone" required/></td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align: right;">
-                        <label for="inquiry">Reasons for Inquiry:</label>
-                    </td>
-                    <td style="width:33%;">
+                    <td><label for="inquiry">Reasons for Inquiry:</label></td>
+                    <td>
                         <select name="inquiry" id="inquiry">
-                                        <option value="home-service" default>Catering</option>
-                                        <option value="review">Feedback</option>
-                                        <option value="miscellaneous">Other</option>
-                    </select>
-                    </td>
-                    <td style="width:33%;">
+                        <option value="home-service" default>Catering</option>
+                        <option value="review">Feedback</option>
+                        <option value="miscellaneous">Other</option>
+                </select>
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align: right;">
-                        <label for="briefDescription"> Additonal Information</label>
-                    </td>
-                    <td style="width:33%">
-                        <textarea id="briefDescription" name="briefDescription"></textarea>
-                    </td>
-                    <td style="width:33%">
-                    </td>
+                    <td><label for="briefDescription"> Additonal Information:</label></td>
+                    <td><textarea id="briefDescription" name="briefDescription"></textarea></td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align:right;">
-                        Have you been to the restaurant?
+                    <td>
+                        <legend class="radio-label"> Have you been to the restaurant?</legned>
                     </td>
-                    <td style="width:33%">
+                    <td>
                         <input type="radio" name="answer" value="yes" />Yes
                         <input type="radio" name="answer" value="no" />No
                     </td>
-                    <td style="width:33%">
-
-                    </td>
                 </tr>
                 <tr>
-                    <td style="width:33%; text-align:right;">
-                        Best days to contact you:
+                    <td>
+                        <label for="day">
+                            Best days to contact you:
+                        </label>
                     </td>
-                    <td style="width:33%">
+                    <td>
                         <input type="checkbox" name="day" value="M" />M
                         <input type="checkbox" name="day" value="T" />T
                         <input type="checkbox" name="day" value="W" />W
                         <input type="checkbox" name="day" value="T" />T
                         <input type="checkbox" name="day" value="F" />F
                     </td>
-                    <td style="width:33%">
-                    </td>
                 </tr>
-            </table>
-            <div style="margin:0 auto; width: 500px">
-                <input type="submit" value="Send Request" />
-            </div>
-        </form>
-    </div>
+            </tbody>
+        </table>
+        <div id="submit">
+            <input type="submit" value="Send Request" />
+        </div>
+
+
+    </form>
+
     <hr/>
-    <footer style="text-align: center;">
-        <p>Street, City,State, Zipcode <br/>Telephone Number</p>
+    <footer>
+        <p>Street, City, State, Zipcode <br/>Telephone Number</p>
     </footer>
 </body>
 
