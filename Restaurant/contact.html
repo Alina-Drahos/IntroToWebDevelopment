@@ -2,44 +2,36 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="restaurantStyles.css" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="restaurantStyles.css" type="text/css" />
+    <link href="font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+    <script src="validate.js" type="text/javascript"></script>
     <title>Deciduous Pizza</title>
     <style>
-        table {
-            margin: auto;
-        }
-        
-        table,
-        td {
-            padding: 10px 5px;
-        }
-        
-        tbody td:nth-child(odd) {
-            text-align: right;
-            margin: 0 20px;
-        }
-        
-        input[type=checkbox],
-        input[type="radio"] {
-            margin: 0 15px;
+        form {
+            background-color: rgba(101, 0, 110, 0.2);
+            padding: 10px 10px;
         }
         
         #submit {
             text-align: center;
         }
         
-        input[type=submit] {
-            width: 150px;
+        label,
+        legend {
+            text-align: right;
         }
         
-        label.req {
+        label.cat {
             font-weight: bold;
         }
     </style>
 </head>
 
-<body>
+<body onload=validateJavaScript();>
     <header>
         <p>Contact Us</p>
         <hr/>
@@ -48,72 +40,100 @@
 
     </header>
 
-    <p><a href="index.html" style="margin-right: 20px;">Home</a>
-        <a href="menu.html" style="margin-right: 20px;">Menu</a>
-        <a href="contact.html">Contact US</a>
+    <p>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html"><i class="fas fa-home"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="menu.html" class="nav-link active">Menu</a>
+            </li>
+            <li>
+                <a href="contact.html" class="nav-link active">Contact US</a>
+            </li>
+
+        </ul>
     </p>
     <hr/>
-
-    <form action="fake.html" method="GET">
-        <table>
-            <tbody>
-                <tr>
-                    <td><label for="name" class="req">Name: </label></td>
-                    <td>
-                        <input type="text" id="name" name="name" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="email" class="req">Email:</label></td>
-                    <td><input type="email" id="email" name="email" required /></td>
-                </tr>
-                <tr>
-                    <td><label for="phone" class="req">Phone:</label></td>
-                    <td><input type="number" id="phone" name="tele-phone" required/></td>
-                </tr>
-                <tr>
-                    <td><label for="inquiry">Reasons for Inquiry:</label></td>
-                    <td>
-                        <select name="inquiry" id="inquiry">
-                        <option value="home-service" default>Catering</option>
-                        <option value="review">Feedback</option>
-                        <option value="miscellaneous">Other</option>
-                </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="briefDescription"> Additonal Information:</label></td>
-                    <td><textarea id="briefDescription" name="briefDescription"></textarea></td>
-                </tr>
-                <tr>
-                    <td>
-                        <legend class="radio-label"> Have you been to the restaurant?</legned>
-                    </td>
-                    <td>
-                        <input type="radio" name="answer" value="yes" />Yes
-                        <input type="radio" name="answer" value="no" />No
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="day">
-                            Best days to contact you:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="checkbox" name="day" value="M" />M
-                        <input type="checkbox" name="day" value="T" />T
-                        <input type="checkbox" name="day" value="W" />W
-                        <input type="checkbox" name="day" value="T" />T
-                        <input type="checkbox" name="day" value="F" />F
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="submit">
-            <input type="submit" value="Send Request" />
+    <p id="hide" style="background-color: red; text-align:center;"><strong>JavaScript is not enabled, use a different Browser or enable JavaScript!</strong></p>
+    <form name="form1" action="fake.html" method="GET" onsubmit="return validateInput();">
+        <div class="form-group row">
+            <label for="name" class=" cat col-lg-1 offset-lg-3  col-form-label ">Name:</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" id="name" name="name" required/>
+            </div>
         </div>
-
+        <div class="form-group row">
+            <label for="email" class="  cat col-lg-4 col-form-label  req">Email:</label>
+            <div class="col-lg-4">
+                <input type="email" class="form-control" id="email" name="email" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="phone" class=" cat col-lg-4 col-form-label  req">Phone:</label>
+            <div class="col-lg-4">
+                <input type="number" class="form-control" id="phone" name="tele-phone" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inquiry" class=" col-lg-4 col-form-label ">Reasons for Inquiry:</label>
+            <div class="col-lg-4">
+                <select name="inquiry" id="inquiry" class="form-control">
+                                <option value="home-service" default>Catering</option>
+                                <option value="review">Feedback</option>
+                                <option value="miscellaneous">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="briefDescription" class=" col-lg-4 col-form-label "> Additonal Information:</label>
+            <div class="col-lg-4">
+                <textarea id="briefDescription" name="briefDescription" class="form-control" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <legend class="radio-label col-lg-4 col-form-label"> Have you been to the restaurant?</legend>
+            <div class=col-lg-4>
+                <div class="form-check form-check-inline pt-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+                        <label class="form-check-label" for="inlineRadio1">YES</label>
+                    </div>
+                    <div class="form-check form-check-inline ml-4">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">NO</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="day" class=" col-lg-4 col-form-label ">Best days to contact you:</label>
+            <div class="col-lg-4">
+                <div class="form-check form-check-inline pt-2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="day" value="M">
+                    <label class="form-check-label" for="inlineCheckbox1">M</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="day" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">T</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="day" value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">W</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="day" value="option4">
+                    <label class="form-check-label" for="inlineCheckbox4">T</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="day" value="option5">
+                    <label class="form-check-label" for="inlineCheckbox5">F</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group-row">
+            <button type="submit" class="btn btn-primary col-lg-1 offset-lg-5">Send Request</button>
+        </div>
 
     </form>
 
@@ -121,6 +141,10 @@
     <footer>
         <p>Street, City, State, Zipcode <br/>Telephone Number</p>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

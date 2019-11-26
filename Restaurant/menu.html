@@ -2,51 +2,30 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="restaurantStyles.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <link href="font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+    <script src="validate.js" type="text/javascript"></script>
     <title>Deciduous Pizza</title>
     <style>
-        table {
+        .container-fluid {
+            background-color: rgba(101, 0, 110, 0.2);
+        }
+        
+        #carousel {
             width: 100%;
-            height: 100px;
+            background-color: rgba(4, 1, 14, 0.7);
+            color: antiquewhite;
             text-align: center;
-            background-color: rgba(255, 0, 0, 0.2);
-        }
-        
-        section {
-            width: 100%;
-            height: 10px;
-            border-top: 2px ridge;
-            border-bottom: 2px ridge;
-        }
-        
-        table tbody td {
-            padding: 40px;
-            padding-top: 0px;
-        }
-        
-        table thead {
-            padding: 0;
-            font-size: large;
-            font-weight: bold;
-        }
-        
-        #beverages tbody td:nth-child(odd) {
-            text-align: right;
-            width: 50%;
-            border-right: 2px dashed black;
-            text-decoration: underline;
-        }
-        
-        #beverages tbody td:nth-child(even) {
-            width: 50%;
-            text-align: left;
-            text-decoration: underline;
+            padding: 30px 0;
         }
     </style>
 </head>
 
-<body>
+<body onload=validateJavaScript();>
     <main>
         <header>
             <p>Menu</p>
@@ -55,81 +34,140 @@
             <hr/>
 
         </header>
-
-        <p><a href="index.html" style="margin-right: 20px;">Home</a>
-            <a href="menu.html" style="margin-right: 20px;">Menu</a>
-            <a href="contact.html">Contact US</a>
+        <p>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="menu.html" class="nav-link active">Menu</a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link active">Contact US</a>
+                </li>
+            </ul>
         </p>
-        <hr/>
 
-        <table>
-            <thead>
-                <tr>
-                    <td>Garden Salad</td>
-                    <td>Mostaccioli Casserole</td>
-                    <td>Ultimate Veggie</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Get fresh with artisan greens, tomatoes, cucumber, red onion, carrots and homemade croutons, and served with your choice of dressing: blue cheese or French. <br/>Small: $ 4.69 Large: $ 7.29
-                    </td>
-                    <td>
-                        The name cannot be said without sounding totally Italian! Now order up this delicioso baked casserole of penne pasta smothered in our homemade sauce! Grazie! <br/>$7.59</td>
-                    <td>
-                        Bruschetta Tomatoes, fresh basil pesto* , mushrooms, our muffuletta olive mixture and melted provolone cheese. <br/> Small: $ 8.79 Large:$9.19
-                    </td>
-                </tr>
-            </tbody>
-            <thead>
-                <tr>
-                    <td>Pizza Athena</td>
-                    <td>Garden Veggie</td>
-                    <td>Wild Mushroom</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>This little goddess has fresh spinach, tomato, feta cheese, Kalamata olives, artichoke hearts, red onions, Greek oregano, toasted garlic and light mozzarella on bianca sauce <br/>Small: $ 15.39 Large: $ 19.69</td>
-                    <td>Tomatoes, mushrooms, green peppers, white onions, muffuletta olives and mozzarella on red sauce. Vegans: It&rsquo;s great with our vegan cheese for an additional topping charge.<br/>Small: $ 19.79 Large: $ 24.69</td>
-                    <td>Served with olive oil, fresh basil, arugula, caramelized onion, garlic, wild mushroom blend and provolone, parmesan and mozzarella cheeses.<br> Small: $ 15.68 Large: $ 22.68</td>
-                </tr>
+        </hr>
+        <p id="hide" style="background-color: red; text-align:center;"><strong>JavaScript is not enabled, use a different Browser or enable JavaScript!</strong></p>
+        <div id="carousel" class="carousel slidep" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-block w-100 ">We are opening a new location!</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">We're rolling out our seasonal menu, with special options for this season.</div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100">The Drink of the Month is SG Special Brew.</div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Garden Salad
+                </div>
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Mostaccioli Casserole
+                </div>
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Ultimate Veggie
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 text-center">
+                    Get fresh with artisan greens, tomatoes, cucumber, red onion, carrots and homemade croutons, and served with your choice of dressing: Blue Cheese or French!
+                </div>
+                <div class="col-lg-4 text-center">
+                    The name cannot be said without sounding totally Italian! Now order up this delicioso baked casserole of penne pasta smothered in our homemade sauce! Grazie!
+                </div>
+                <div class="col-lg-4 text-center">
+                    Bruschetta Tomatoes, fresh basil pesto* , mushrooms, our muffuletta olive mixture and melted provolone cheese and a piece of our home made baguette bread!
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-4 text-center">
+                    Small: $ 4.69 Large: $ 7.29
+                </div>
+                <div class="col-lg-4 text-center">
+                    $7.59
+                </div>
+                <div class="col-lg-4 text-center">
+                    Small: $ 8.79 Large:$9.19
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Pizza Athena
+                </div>
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Garden Veggie
+                </div>
+                <div class="col-lg-4 font-weight-bold text-center">
+                    Wild Mushroom
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 text-center">
+                    This little goddess has fresh spinach, tomato, feta cheese, Kalamata olives, artichoke hearts, red onions, Greek oregano, toasted garlic and light mozzarella on bianca sauce!
+                </div>
+                <div class="col-lg-4 text-center">
+                    Tomatoes, mushrooms, green peppers, white onions, muffuletta olives and mozzarella on red sauce. Vegans: It&rsquo;s great with our vegan cheese for an additional topping charge.
+                </div>
+                <div class="col-lg-4 text-center">
+                    Served with olive oil, fresh basil, arugula, caramelized onion, garlic, wild mushroom blend and provolone, parmesan and mozzarella cheeses.
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-4 text-center">
+                    Small: $ 15.39 Large: $ 19.69
+                </div>
+                <div class="col-lg-4 text-center">
+                    $7.59
+                </div>
+                <div class="col-lg-4 text-center">
+                    Small: $ 13.69 Large:$22.19
+                </div>
+            </div>
+        </div>
 
-            </tbody>
+        <div class="container-fluid">
+            <div class="row mb-3">
+                <div class="col-lg-12 font-weight-bold text-center "><u>Beverages</u></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 text-right border-right border-dark">Root Beer</div>
+                <div class="col-lg-6  text-left">$ 3.00</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 text-right border-right border-dark">Bottled Water</div>
+                <div class="col-lg-6  text-left">$ 1.25</div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-6 text-right border-right border-dark">Lemonade</div>
+                <div class="col-lg-6  text-left">$ 1.00</div>
+            </div>
 
-        </table>
-        <section>
+        </div>
 
-        </section>
-
-        <table id="beverages">
-            <thead>
-                <tr>
-                    <td colspan="2">Beverages</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Root Beer</td>
-                    <td>$ 3.00</td>
-                </tr>
-                <tr>
-                    <td>Bottled Water</td>
-                    <td>$1.25</td>
-                </tr>
-                <tr>
-                    <td>Lemonade</td>
-                    <td>$1.00</td>
-                </tr>
-            </tbody>
-        </table>
         <hr/>
         <footer>
             <p>Street, City,State, Zipcode <br/>Telephone Number</p>
+            <p id="hide" style="background-color: red;"><strong>JavaScript is not enabled, use a different Browser or enable JavaScript!</strong></p>
         </footer>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
